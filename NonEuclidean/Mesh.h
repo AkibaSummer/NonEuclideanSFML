@@ -1,7 +1,7 @@
 #pragma once
 #include "Collider.h"
 #include "Camera.h"
-#include <GL/glew.h>
+#include <SFML/OpenGL.hpp>
 #include <vector>
 #include <map>
 

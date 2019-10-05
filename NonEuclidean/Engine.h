@@ -8,7 +8,7 @@
 #include "Timer.h"
 #include "Scene.h"
 #include "Sky.h"
-#include <GL/glew.h>
+#include <SFML/OpenGL.hpp>
 #include <windows.h>
 #include <memory>
 #include <vector>

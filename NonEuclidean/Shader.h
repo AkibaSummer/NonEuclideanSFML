@@ -1,5 +1,5 @@
 #pragma once
-#include <GL/glew.h>
+#include <SFML/OpenGL.hpp>
 #include <vector>
 
 class Shader {

@@ -1,6 +1,6 @@
 #pragma once
 #include "Camera.h"
-#include <GL/glew.h>
+#include <SFML/OpenGL.hpp>
 
 //Forward declaration
 class Portal;
