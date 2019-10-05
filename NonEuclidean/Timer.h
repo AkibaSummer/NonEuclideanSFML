@@ -1,29 +1,25 @@
 #pragma once
-#include <Windows.h>
+#include <time.h>
+
+// Reference: https://create.stephan-brumme.com/windows-and-linux-code-timing/
 
 class Timer {
-public:
-  Timer() {
-    QueryPerformanceFrequency(&frequency);
-  }
+ public:
+  Timer() {}
 
-  void Start() {
-    QueryPerformanceCounter(&t1);
-  }
+  void Start() { clock_gettime(CLOCK_MONOTONIC, &t1); }
 
   float Stop() {
-    QueryPerformanceCounter(&t2);
-    return float(t2.QuadPart - t1.QuadPart) / frequency.QuadPart;
+    clock_gettime(CLOCK_MONOTONIC, &t2);
+    return t2.tv_sec - t1.tv_sec + (t2.tv_nsec - t1.tv_nsec) / 1000000000.0;
   }
 
   int64_t GetTicks() {
-    QueryPerformanceCounter(&t2);
-    return t2.QuadPart;
+    clock_gettime(CLOCK_MONOTONIC, &t2);
+    return t2.tv_sec * 1000000000 + t2.tv_nsec;
   }
 
-  int64_t SecondsToTicks(float s) {
-    return int64_t(float(frequency.QuadPart) * s);
-  }
+  int64_t SecondsToTicks(float s) { return int64_t(1000000000.0 * s); }
 
   float StopStart() {
     const float result = Stop();
@@ -31,7 +27,7 @@ public:
     return result;
   }
 
-private:
-  LARGE_INTEGER frequency;        // ticks per second
-  LARGE_INTEGER t1, t2;           // ticks
+ private:
+  timespec frequency;  // ticks per second
+  timespec t1, t2;     // ticks
 };
