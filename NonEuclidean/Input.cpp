@@ -3,6 +3,7 @@
 #include <memory>
 #include "GameHeader.h"
 #include "SFML/Window.hpp"
+#include "SFML/System.hpp"
 
 Input::Input() { memset(this, 0, sizeof(Input)); }
 

@@ -9,8 +9,8 @@ public:
   void UpdateRaw(const sf::Event);
 
   //Keyboard
-  bool key[256];
-  bool key_press[256];
+  bool key[sf::Keyboard::KeyCount];
+  bool key_press[sf::Keyboard::KeyCount];
 
   //Mouse
   bool mouse_button[3];
