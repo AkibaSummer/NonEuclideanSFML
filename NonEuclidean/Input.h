@@ -6,7 +6,7 @@ public:
   Input();
 
   void EndFrame();
-  void UpdateRaw(const tagRAWINPUT* raw);
+  void UpdateRaw(const sf::Event);
 
   //Keyboard
   bool key[256];
@@ -15,10 +15,8 @@ public:
   //Mouse
   bool mouse_button[3];
   bool mouse_button_press[3];
-  float mouse_dx;
-  float mouse_dy;
-  float mouse_ddx;
-  float mouse_ddy;
+  int mouse_dx;
+  int mouse_dy;
 
   //Joystick
   //TODO:
