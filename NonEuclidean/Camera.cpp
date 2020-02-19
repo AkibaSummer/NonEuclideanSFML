@@ -1,5 +1,5 @@
 #include "Camera.h"
-#include <SFML/OpenGL.hpp>
+#include <GL/glew.h>
 #include <cmath>
 #include "GameHeader.h"
 

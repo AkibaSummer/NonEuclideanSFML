@@ -1,5 +1,6 @@
 #pragma once
-
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
 struct tagRAWINPUT;
 class Input {
 public:

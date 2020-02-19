@@ -1,18 +1,20 @@
 #pragma once
-#include "GameHeader.h"
-#include "Camera.h"
-#include "Object.h"
-#include "Portal.h"
-#include "Player.h"
-#include "Timer.h"
-#include "Scene.h"
-#include "Sky.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <memory>
 #include <vector>
+#include "Camera.h"
+#include "GameHeader.h"
 #include "Input.h"
+#include "Object.h"
+#include "Player.h"
+#include "Portal.h"
+#include "Scene.h"
+#include "Sky.h"
+#include "Timer.h"
 
 class Engine {
-public:
+ public:
   Engine();
   ~Engine();
 
@@ -24,7 +26,7 @@ public:
   const Player& GetPlayer() const { return *player; }
   float NearestPortalDist() const;
 
-private:
+ private:
   void CreateGLWindow();
   void InitGLObjects();
   void DestroyGLObjects();
@@ -32,7 +34,7 @@ private:
 
   int iWidth;         // window width
   int iHeight;        // window height
-  bool isFullscreen;   // fullscreen state
+  bool isFullscreen;  // fullscreen state
 
   sf::RenderWindow window;
 

@@ -1,6 +1,6 @@
 #include "Collider.h"
 #include "GameHeader.h"
-#include "SFML/OpenGL.hpp"
+#include "GL/glew.h"
 #include <cassert>
 #include <iostream>
 

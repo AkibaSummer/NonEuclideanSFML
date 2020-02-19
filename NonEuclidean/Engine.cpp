@@ -1,7 +1,5 @@
 #include "Engine.h"
 #include <GL/glew.h>
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -15,6 +13,7 @@
 
 Engine* GH_ENGINE = nullptr;
 Player* GH_PLAYER = nullptr;
+Input* GH_INPUT = nullptr;
 int GH_REC_LEVEL = 0;
 int64_t GH_FRAME = 0;
 
@@ -55,9 +54,9 @@ int Engine::Run() {
   const int64_t ticks_per_step = timer.SecondsToTicks(GH_DT);
   int64_t cur_ticks = timer.GetTicks();
   GH_FRAME = 0;
-
+  window.setActive(true);
   // Game loop
-  while (true) {
+  while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
       if (event.type == sf::Event::Closed) {
@@ -118,6 +117,7 @@ int Engine::Run() {
     // Render scene
     GH_REC_LEVEL = GH_MAX_RECURSION;
     Render(main_cam, 0, nullptr);
+    window.display();
   }
 
   DestroyGLObjects();
@@ -278,10 +278,11 @@ void Engine::Render(const Camera& cam, GLuint curFBO,
 void Engine::CreateGLWindow() {
   // GL settings
   sf::ContextSettings settings;
-  settings.majorVersion = 1;
-  settings.minorVersion = 1;
+  settings.majorVersion = 3;
+  settings.minorVersion = 0;
   settings.depthBits = 32;
-  settings.attributeFlags = sf::ContextSettings::Attribute::Core;
+  settings.sRgbCapable = true;
+  settings.antialiasingLevel = 8;
 
   // Always start in windowed mode
   iWidth = GH_SCREEN_WIDTH;

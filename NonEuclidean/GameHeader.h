@@ -47,7 +47,7 @@ class Input;
 class Player;
 extern Engine* GH_ENGINE;
 extern Player* GH_PLAYER;
-extern const Input* GH_INPUT;
+extern Input* GH_INPUT;
 extern int GH_REC_LEVEL;
 extern int64_t GH_FRAME;
 

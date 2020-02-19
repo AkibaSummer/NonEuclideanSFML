@@ -3,11 +3,7 @@ add_library(NonEuclideanSFMLSource
   Camera.h
   Collider.cpp
   Collider.h
-  Engine.cpp
-  Engine.h
   Floorplan.h
-  FrameBuffer.cpp
-  FrameBuffer.h
   GameHeader.h
   Ground.h
   House.h
@@ -53,5 +49,9 @@ add_library(NonEuclideanSFMLSource
   Timer.h
   Tunnel.h
   Vector.h
+  Engine.cpp
+  Engine.h
+  FrameBuffer.cpp
+  FrameBuffer.h
 )
   
