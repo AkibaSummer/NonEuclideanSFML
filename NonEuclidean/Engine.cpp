@@ -297,7 +297,7 @@ void Engine::CreateGLWindow() {
     window_style = sf::Style::Fullscreen;
   } else {
     screen_size = sf::VideoMode(iWidth, iHeight, 24);
-    window_style = sf::Style::Close;
+    window_style = sf::Style::None;
   }
 
   window.create(screen_size, "NonEuclideanSFML", window_style, settings);
@@ -343,7 +343,7 @@ void Engine::ConfineCursor() {
   if (GH_HIDE_MOUSE) {
     auto position = window.getPosition();
     auto size = (sf::Vector2i)window.getSize();
-    sf::Mouse::setPosition(position + size / 2);
+    // sf::Mouse::setPosition(position + (size / 2));
   }
 }
 

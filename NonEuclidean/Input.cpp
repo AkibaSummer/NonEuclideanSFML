@@ -11,9 +11,14 @@ void Input::EndFrame() {
 }
 
 void Input::UpdateRaw(const sf::Event event) {
+  static int mouseMovedx = -1, mouseMovedy = -1;
   if (event.type == sf::Event::MouseMoved) {
-    mouse_dx = event.mouseMove.x;
-    mouse_dy = event.mouseMove.y;
+    if (mouseMovedx != -1) {
+      mouse_dx = event.mouseMove.x - mouseMovedx;
+      mouse_dy = event.mouseMove.y - mouseMovedy;
+    }
+    mouseMovedx = event.mouseMove.x;
+    mouseMovedy = event.mouseMove.y;
   }
 
   if (event.type == sf::Event::MouseButtonPressed) {
